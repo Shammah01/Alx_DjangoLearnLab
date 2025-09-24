@@ -25,7 +25,17 @@ SECRET_KEY = 'django-insecure-tdoa#g0)ci+oc!80#quxqwi#=*5n8agfo=dy$t7a&$2frz1j0_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['56d9ad5b865e.646af159.alx-cod.online', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    '56d9ad5b865e.646af159.alx-cod.online',
+    '127.0.0.1',
+    'localhost',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://56d9ad5b865e.646af159.alx-cod.online',
+    'https://56d9ad5b865e.646af159.alx-cod.online',
+]
+
 
 
 # Application definition
