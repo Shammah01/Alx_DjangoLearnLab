@@ -1,0 +1,19 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django database
+db.sqlite3
+
+# Django migrations (only ignore if you don’t want migration files tracked)
+*.log
+
+# VSCode / PyCharm / Editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
