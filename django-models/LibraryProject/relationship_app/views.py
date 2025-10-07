@@ -1,9 +1,25 @@
+from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.detail import DetailView   # ✅ THIS fixes the error
 from .models import Book, Library
+
+# Add a new book
+@permission_required('relationship_app.can_add_book')
+def add_book(request):
+    return render(request, 'relationship_app/add_book.html')
+
+# Edit a book
+@permission_required('relationship_app.can_change_book')
+def edit_book(request):
+    return render(request, 'relationship_app/edit_book.html')
+
+# Delete a book
+@permission_required('relationship_app.can_delete_book')
+def delete_book(request):
+    return render(request, 'relationship_app/delete_book.html')
 
 # Function-based view
 def list_books(request):
