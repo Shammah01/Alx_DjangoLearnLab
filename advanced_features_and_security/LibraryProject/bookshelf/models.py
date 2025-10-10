@@ -1,3 +1,12 @@
+"""
+Custom permissions setup:
+- can_view: allows viewing book entries
+- can_create: allows creating books
+- can_edit: allows editing books
+- can_delete: allows deleting books
+Groups (Admins, Editors, Viewers) manage these permissions via Django Admin.
+"""
+
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 
@@ -36,3 +45,18 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.username
 
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)
+    publication_year = models.IntegerField()
+
+    class Meta:
+        permissions = [
+            ("can_view", "Can view book"),
+            ("can_create", "Can create book"),
+            ("can_edit", "Can edit book"),
+            ("can_delete", "Can delete book"),
+        ]
+
+    def __str__(self):
+        return self.title
