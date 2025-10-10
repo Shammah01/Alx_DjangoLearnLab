@@ -25,16 +25,12 @@ SECRET_KEY = 'django-insecure-tdoa#g0)ci+oc!80#quxqwi#=*5n8agfo=dy$t7a&$2frz1j0_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'b25549bb2ad0.997fdb6a.alx-cod.online',
-    '127.0.0.1',
-    'localhost'
-]
+ALLOWED_HOSTS = ['*']
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://56d9ad5b865e.646af159.alx-cod.online',
-    'https://56d9ad5b865e.646af159.alx-cod.online',
+    'http://2c41534af9db.a8780abd.alx-cod.online:8000',
+    'https://2c41534af9db.a8780abd.alx-cod.online:8000',
 ]
 
 
@@ -52,6 +48,7 @@ INSTALLED_APPS = [
     'relationship_app',
     'accounts',
 ]
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
