@@ -35,6 +35,18 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+# ===============================
+# ✅ SECURITY CONFIGURATIONS
+# ===============================
+
+# Redirect all HTTP requests to HTTPS
+SECURE_SSL_REDIRECT = True
+
+# Tell browsers to only use HTTPS for future requests (1 year)
+SECURE_HSTS_SECONDS = 31536000  # 1 year in seconds
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
 
 CSRF_TRUSTED_ORIGINS = [
     'http://2c41534af9db.a8780abd.alx-cod.online:8000',
@@ -158,3 +170,25 @@ CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'")
 # Add middleware for CSP if using django-csp
 MIDDLEWARE += [
     'csp.middleware.CSPMiddleware',
+
+    # Ensure cookies are only sent over HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# Prevent MIME type sniffing
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Prevent the site from being embedded in frames (defends against clickjacking)
+X_FRAME_OPTIONS = 'DENY'
+
+# Enable browser XSS protection
+SECURE_BROWSER_XSS_FILTER = True
+
+# ===============================
+# Security Notes:
+# - HTTPS enforced with SECURE_SSL_REDIRECT
+# - HSTS configured for 1 year with subdomains and preload
+# - Cookies restricted to HTTPS only
+# - XSS, Clickjacking, and MIME sniffing protections enabled
+# ===============================
+
