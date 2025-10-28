@@ -38,7 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'django.contrib.humanize',
 ]
+
+# redirect after login/logout
+LOGIN_REDIRECT_URL = 'blog:profile'   # change to where you want users sent
+LOGOUT_REDIRECT_URL = 'blog:login'
+
+# media (if you want profile photos)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'  # if BASE_DIR is a pathlib.Path
+
+# security & csrf reminders (in prod change accordingly)
+CSRF_COOKIE_SECURE = False  # set True in production with HTTPS
+SESSION_COOKIE_SECURE = False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
